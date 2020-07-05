@@ -12,7 +12,6 @@ class SkillList {
   async render() {
     const skills = await this.APIClient.getSkills();
     let lis = '';
-    console.log(skills)
     skills.forEach((skill) => lis += `<li><span class="name">${skill}</span>`);
     this.list.innerHTML = lis;
   }
@@ -23,7 +22,8 @@ class BlogList {
     this.list = document.querySelector('#blog-list ul');
     this.form = document.forms['add-blog'];
     this.addInput = document.forms['add-blog'].querySelector('input[type="text"]');
-    this.hideBox = document.querySelector('#hide');
+    this.nameInput = document.querySelector('#userName');
+
     this.searchBar = document.forms['search-blogs'].querySelector('input');
     this.APIClient = new APIClient();
     this.bindEvents();
@@ -33,14 +33,14 @@ class BlogList {
   bindEvents() {
     this.list.addEventListener('click', this.onDeleteButtonClick.bind(this));
     this.form.addEventListener('submit', this.onSubmit.bind(this));
-    this.hideBox.addEventListener('change', this.onHideBoxChange.bind(this));
     this.searchBar.addEventListener('keyup', this.onSearchBarChange.bind(this));
   }
 
   onDeleteButtonClick(e) {
     if (e.target.className == 'delete') {
-      const blog = e.target.previousSibling.innerText;
-      this.APIClient.deleteBlog(blog);
+      const blogId = e.target.id.slice(7);
+      console.log(blogId)
+      this.APIClient.deleteBlog(blogId);
       this.render();
     }
   }
@@ -48,16 +48,9 @@ class BlogList {
   async onSubmit(e) {
     e.preventDefault();
     const { value } = this.addInput;
-    await this.APIClient.createBlog({title:value,body:"#TODO",created:new Date()});
+    await this.APIClient.createBlog({title:value,body:"#TODO",
+    userName:this.nameInput.value,created:new Date()});
     this.render();
-  }
-
-  onHideBoxChange(e) {
-    if (this.hideBox.checked) {
-      this.list.style.display = 'none';
-    } else {
-      this.list.style.display = 'initial';
-    }
   }
 
   onSearchBarChange(e) {
@@ -77,7 +70,8 @@ class BlogList {
     const blogs = await this.APIClient.getBlogs();
     let lis = '';
     blogs.forEach((blog) => lis += `<li><span class="name">${blog.title}</span>
-   <div> ${blog.body}</div> <span>${blog.created}</span><span class="delete">delete</span></li>`);
+   <div> ${blog.body}</div> <span>${blog.created}</span>
+   <span> by ${blog.userName} <span class="delete" id="delete-${blog.id}">delete</span></li>`);
     this.list.innerHTML = lis;
   }
 }
