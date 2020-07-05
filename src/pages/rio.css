@@ -1,0 +1,61 @@
+.name  {
+    color: blue;
+}
+
+#skill-wrapper{
+    width: 90%;
+    max-width: 960px;
+    margin: 40px auto;
+    border-radius: 6px;
+    box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    padding: 0 0 20px;
+    overflow: hidden;
+    border: 1px solid lightgray;
+  }
+  
+  #skill-page-banner{
+    background: #eee ;
+    padding: 10px 0;
+  
+  }
+  
+  #skill-page-banner h1, #page-banner p{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  #skill-page-banner input{
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  
+#blog-list, #add-blog, #tabbed-content{
+    margin: 30px;
+  }
+  
+  #skill-list ul, #tabbed-content ul{
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #skill-list li{
+    padding: 20px;
+    border-left: 5px solid #ddd;
+    margin: 20px 10px;
+  }
+  
+  #skill-list li:hover{
+    border-color: red;
+  }
+  
+  

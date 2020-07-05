@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rio Blog</title>
+  <link rel="icon" type="image/png" href="assets/favicon.ico">
+</head>
+
+<body>
+  <!-- Header starts -->
+  <header>
+    <img src="../assets/logo.png" alt="logo" height="50" width="50" />
+    <nav>
+      <a href="#" id="menu-icon"></a>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./intro.html">Intro</a></li>
+        <li><a href="#" class="current">DOM</a></li>
+        <li><a href="./outro.html">Outro</a></li>
+        <li><a href="https://www.mercari.com/jp">Mercari</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="skill-wrapper">
+      <div id="skill-page-banner">
+        <h1 class="title">Skills</h1>
+      </div>
+        <div id="skill-list">
+         <ul></ul>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="page-banner">
+        <h1 class="title">Rio blog</h1>
+        <p>Blogs</p>
+        <form id="search-blogs">
+          <input type="text" placeholder="Search blogs..." />
+        </form>
+      </div>
+      <div id="blog-list">
+        <h2 class="title">Blog List</h2>
+        <ul></ul>
+      </div>
+      <form id="add-blog">
+        <div>
+          <input type="checkbox" id="hide" />
+          <label for="hide">Hide all blogs</label>
+        </div>
+        <div>
+          <input type="text" placeholder="Add a blog..." />
+          <button>Add</button>
+        </div>
+      </form>
+
+    </div>
+  </main>
+</body>
+
+</html>
