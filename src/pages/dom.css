@@ -167,8 +167,9 @@ main {
 }
 
 #add-blog{
-  width: 500px;
+  width: 700px;
   margin: 0 auto;
+  float: center;
 }
 
 #add-blog input{
@@ -180,22 +181,21 @@ main {
   border-radius: 4px 0 0 4px;
   box-sizing: border-box;
   width: 300px;
-  float: left;
+  float: center;
 }
 
-#add-blog button{
+#sendAdd {
   border: 1px solid #9361bf;
   background: #9361bf;
   padding: 10px 20px;
   font-size: 16px;
-  display: inline-block;
-  margin: 0;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   width: 100px;
   margin: 20px 0;
-  border-left: 0;
+  margin-left : 400px;
   color: white;
+  display: inline-block;
 }
 
 #add-blog:after{

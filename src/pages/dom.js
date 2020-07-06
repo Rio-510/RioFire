@@ -20,8 +20,9 @@ class SkillList {
 class BlogList {
   constructor() {
     this.list = document.querySelector('#blog-list ul');
-    this.form = document.forms['add-blog'];
-    this.addInput = document.forms['add-blog'].querySelector('input[type="text"]');
+    this.form = document.querySelector("#sendAdd");
+    this.addInput = document.querySelector('#title');
+    this.bodyInput = document.querySelector('#body');
     this.nameInput = document.querySelector('#userName');
 
     this.searchBar = document.forms['search-blogs'].querySelector('input');
@@ -32,7 +33,7 @@ class BlogList {
 
   bindEvents() {
     this.list.addEventListener('click', this.onDeleteButtonClick.bind(this));
-    this.form.addEventListener('submit', this.onSubmit.bind(this));
+    this.form.addEventListener('click', this.onSubmit.bind(this));
     this.searchBar.addEventListener('keyup', this.onSearchBarChange.bind(this));
   }
 
@@ -48,7 +49,7 @@ class BlogList {
   async onSubmit(e) {
     e.preventDefault();
     const { value } = this.addInput;
-    await this.APIClient.createBlog({title:value,body:"#TODO",
+    await this.APIClient.createBlog({title:value,body:this.bodyInput.value,
     userName:this.nameInput.value,created:new Date()});
     this.render();
   }
